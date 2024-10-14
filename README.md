@@ -51,5 +51,5 @@ This is a Python CLI tool for retrieving file metadata and content from a REST A
     ```bash
     python flask_server.py
     ```
-    - The server will be running at http://127.0.0.1:5000.
-    - There are two test files with UUIDs: "123e4567-e89b-12d3-a456-426614174000" and "123e4567-e89b-12d3-a456-426614174001".
+- The server will be running at http://127.0.0.1:5000.
+- There are two test files with UUIDs: "123e4567-e89b-12d3-a456-426614174000" and "123e4567-e89b-12d3-a456-426614174001".
