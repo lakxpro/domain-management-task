@@ -13,8 +13,7 @@ Create tables
 
 - create domain table
 
-.. code-block:: sql
-  CREATE TABLE domain (
+- CREATE TABLE domain (
       id SERIAL PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
       registered_at TIMESTAMP NOT NULL,
@@ -26,8 +25,7 @@ Create tables
 
 - create domain_flag table
 
-.. code-block:: sql
-  CREATE TABLE domain_flag (
+- CREATE TABLE domain_flag (
       id SERIAL PRIMARY KEY,
       domain_id INT REFERENCES domain(id) ON DELETE CASCADE,
       flag VARCHAR(50) NOT NULL,
@@ -42,8 +40,7 @@ Populate tables
 
 - domain table 
 
-.. code-block:: sql
-  INSERT INTO domain (name, registered_at, unregistered_at)
+- INSERT INTO domain (name, registered_at, unregistered_at)
   VALUES 
   ('example.com', '2023-01-01 10:00:00', NULL),
   ('testdomain.com', '2022-01-01 10:00:00', '2023-01-01 10:00:00'),
@@ -52,8 +49,7 @@ Populate tables
 
 - domain_flag table
 
-.. code-block:: sql
-  INSERT INTO domain_flag (domain_id, flag, enabled_at, disabled_at)
+- INSERT INTO domain_flag (domain_id, flag, enabled_at, disabled_at)
   VALUES
   (1, 'EXPIRED', '2023-09-01 00:00:00', '2023-09-10 00:00:00'),
   (1, 'OUTZONE', '2023-09-01 00:00:00', NULL),
@@ -66,8 +62,7 @@ Queryes
 
 - Write a SELECT query which will return fully qualified domain name of domains which are currently (at the time query is run) registered and do not have and active (valid) expiration (EXPIRED) flag.
 
-.. code-block:: sql
-  SELECT d.name 
+- SELECT d.name 
   FROM domain d
   WHERE d.unregistered_at IS NULL
     AND d.id NOT IN (
@@ -79,8 +74,7 @@ Queryes
 
 - Write a ``SELECT`` query which will return fully qualified domain name of domains which have had active (valid) ``EXPIRED`` and ``OUTZONE`` flags (means both flags and not necessarily at the same time) in the past (relative to the query run time).
 
-.. code-block:: sql
-  SELECT DISTINCT d.name
+- SELECT DISTINCT d.name
   FROM domain d
   WHERE d.id IN (
       SELECT f1.domain_id
