@@ -56,7 +56,7 @@ VALUES
 Queryes
 =======
 
-1)Write a SELECT query which will return fully qualified domain name of domains which are currently (at the time query is run) registered and do not have and active (valid) expiration (EXPIRED) flag.
+1) Write a SELECT query which will return fully qualified domain name of domains which are currently (at the time query is run) registered and do not have and active (valid) expiration (EXPIRED) flag.
 
 
 SELECT d.name 
